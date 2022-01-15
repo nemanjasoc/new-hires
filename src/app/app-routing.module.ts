@@ -4,7 +4,6 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { SinglePostComponent } from './single-post/single-post.component';
 
-
 const routes: Routes = [
   {
     path: 'posts-list',

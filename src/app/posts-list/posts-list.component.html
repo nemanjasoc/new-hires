@@ -1,7 +1,27 @@
-<div class="articles-container">
+<div class="page-container">
+  <div class="container">
+    <h1>NEWS</h1>
+    <div class="all-articles">
+      <div *ngFor="let article of articles" class="article" routerLink="/single-post/{{article.id}}">
+        <div class="article-content">
+          <div class="article-text-content">
 
-  <div *ngFor="let article of articles" class="article" routerLink="/single-post/{{article.id}}">
-    {{article.title}}
+            <div class="article-title-wrapper">
+              <a class="article-title">{{article.title}}</a>
+              <span class="article-separator"> - </span>
+              <a class="article-time">{{article.created_at}}</a>
+            </div>
+
+            <div class="article-description">
+              <p>{{article.body}}</p>
+            </div>
+          </div>
+
+          <div class="details-button-wrapper">
+            <button>MORE DETAILS</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
 </div>

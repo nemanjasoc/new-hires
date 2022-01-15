@@ -1,4 +1,11 @@
-<div *ngIf="article && category">
-
-  Single post data
+<div class="page-container">
+  <div *ngIf="article && category" class="container">
+    <h1>NEWS</h1>
+    <h2>{{article.title}}</h2>
+    <p>{{article.body}}</p>
+    <hr />
+    <span class="category-name">{{category.name}}</span>
+    <span class="article-separator"> - </span>
+    <span class="article-time">{{article.created_at}}</span>
+  </div>
 </div>

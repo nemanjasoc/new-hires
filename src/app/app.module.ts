@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 // COMPONENTS
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { SinglePostComponent } from './single-post/single-post.component';
@@ -12,6 +13,7 @@ import { SinglePostComponent } from './single-post/single-post.component';
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     AdminDashboardComponent,
     PostsListComponent,
     SinglePostComponent

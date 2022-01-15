@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map, mergeMap, tap } from 'rxjs/operators';
+import { mergeMap, tap } from 'rxjs/operators';
 import { ArticleService } from '../core/services/article.service';
 import { CategoryService } from '../core/services/category.service';
 import { Article } from '../shared/models/article.model';
