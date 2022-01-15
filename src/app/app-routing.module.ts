@@ -11,7 +11,7 @@ const routes: Routes = [
     component: PostsListComponent,
   },
   {
-    path: 'single-post',
+    path: 'single-post/:id',
     component: SinglePostComponent,
   },
   {

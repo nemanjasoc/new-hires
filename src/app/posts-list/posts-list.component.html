@@ -1,1 +1,7 @@
-<p>posts-list works!</p>
+<div class="articles-container">
+
+  <div *ngFor="let article of articles" class="article" routerLink="/single-post/{{article.id}}">
+    {{article.title}}
+  </div>
+
+</div>
