@@ -1,19 +1,10 @@
 @import "../../assets/scss/mixins";
 @import "../../assets/scss/variables";
 
-.page-container {
-  h1 {
-    color: $h1;
-    margin-bottom: 50px;
-    font-weight: 900;
-    font-size: 2rem;
-  }
-}
-
 .all-articles {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 4rem;
   padding: 2rem 0;
 
   .article {
@@ -43,6 +34,11 @@
   cursor: pointer;
   text-transform: uppercase;
   font-weight: 900;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .article-description {
@@ -64,7 +60,7 @@
 
   button {
     font-size: 0.6rem;
-    font-weight: 900;
+    font-weight: 600;
     color: $white;
     background-color: $orange;
     border-color: $orange;
@@ -79,13 +75,50 @@
   }
 }
 
-@media (max-width: 992px) {
-  .all-articles {
-    grid-template-columns: repeat(3, 1fr);
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  button {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $black;
+    background-color: $white;
+    border-color: $black;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    margin: 2px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include transition(all 0.2s linear);
+
+    &:hover {
+      background-color: $black;
+      color: $white;
+    }
+
+    &:disabled {
+      pointer-events: none;
+      background-color: $gray;
+    }
   }
 }
 
-@media (max-width: 768px) {
+.current-page {
+  font-size: 1rem;
+  font-weight: 500;
+  color: $black;
+  background-color: $white;
+  min-width: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 992px) {
   .all-articles {
     grid-template-columns: repeat(2, 1fr);
   }

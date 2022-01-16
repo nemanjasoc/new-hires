@@ -1,13 +1,6 @@
 @import "../../assets/scss/variables";
 
 .page-container {
-  h1 {
-    color: $h1;
-    margin-bottom: 50px;
-    font-weight: 900;
-    font-size: 2rem;
-  }
-
   h2 {
     font-size: 1.5rem;
     color: $black;
@@ -15,7 +8,7 @@
     text-transform: uppercase;
     text-align: left;
     line-height: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   p {
@@ -23,6 +16,7 @@
     color: $pGray;
     line-height: 18px;
     text-align: justify;
+    margin-top: 20px;
   }
 }
 
@@ -31,8 +25,17 @@ hr {
   height: 1px;
   border: 0;
   background-color: $gray;
-  margin: 40px 0 10px;
+  margin: 40px 0 20px 0;
   padding: 0;
+}
+
+.category-title,
+.comment-title {
+  font-size: 1rem;
+  line-height: 18px;
+  color: $orange;
+  text-transform: uppercase;
+  font-weight: 900;
 }
 
 .category-name {
@@ -41,4 +44,12 @@ hr {
   color: $black;
   text-transform: uppercase;
   font-weight: 900;
+}
+
+.comment-title {
+  margin: 30px 0;
+}
+
+.comments {
+  margin-left: 20px;
 }

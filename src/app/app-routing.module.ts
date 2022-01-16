@@ -3,8 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { SinglePostComponent } from './single-post/single-post.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+  },
   {
     path: 'posts-list',
     component: PostsListComponent,
@@ -16,11 +21,6 @@ const routes: Routes = [
   {
     path: 'admin-dashboard',
     component: AdminDashboardComponent,
-  },
-  {
-    path: '',
-    redirectTo: 'posts-list',
-    pathMatch: 'full',
   },
 ];
 

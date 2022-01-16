@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Category } from '../../shared/models/category.model';
 import { environment } from '../../../environments/environment';
-import { SingleResponse } from 'src/app/shared/models/single-response.model';
+import { SingleResponse } from '../../shared/models/single-response.model';
 
 const apiUrl = environment.apiUrl;
 

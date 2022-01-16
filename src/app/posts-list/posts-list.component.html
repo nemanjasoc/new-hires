@@ -1,27 +1,39 @@
 <div class="page-container">
   <div class="container">
     <h1>NEWS</h1>
-    <div class="all-articles">
-      <div *ngFor="let article of articles" class="article" routerLink="/single-post/{{article.id}}">
-        <div class="article-content">
-          <div class="article-text-content">
+    <ng-container *ngIf="response">
 
-            <div class="article-title-wrapper">
-              <a class="article-title">{{article.title}}</a>
-              <span class="article-separator"> - </span>
-              <a class="article-time">{{article.created_at}}</a>
+      <div class="all-articles">
+        <div *ngFor="let article of response.data" class="article">
+          <div class="article-content">
+            <div class="article-text-content">
+
+              <div>
+                <a class="article-title" routerLink="/single-post/{{article.id}}">{{article.title}}</a>
+                <span class="article-separator"> - </span>
+                <span class="article-time">{{article.created_at | date: 'medium'}}</span>
+              </div>
+
+              <div class="article-description">
+                <p>{{article.body}}</p>
+              </div>
             </div>
 
-            <div class="article-description">
-              <p>{{article.body}}</p>
+            <div class="details-button-wrapper">
+              <button routerLink="/single-post/{{article.id}}">MORE DETAILS</button>
             </div>
-          </div>
-
-          <div class="details-button-wrapper">
-            <button>MORE DETAILS</button>
           </div>
         </div>
       </div>
-    </div>
+
+      <div class="pagination">
+        <button (click)="refreshData(response.first_page_url)">FIRST</button>
+        <button [disabled]="!response.prev_page_url" (click)="refreshData(response.prev_page_url)">
+          < </button>
+            <div class="current-page">{{response.current_page}}</div>
+            <button [disabled]="!response.next_page_url" (click)="refreshData(response.next_page_url)"> > </button>
+            <button (click)="refreshData(response.last_page_url)">LAST</button>
+      </div>
+    </ng-container>
   </div>
 </div>

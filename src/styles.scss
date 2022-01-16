@@ -18,6 +18,13 @@
 
 .page-container {
   padding: 50px 0;
+
+  h1 {
+    color: $h1;
+    margin-bottom: 50px;
+    font-weight: 900;
+    font-size: 2rem;
+  }
 }
 
 .article-separator {
@@ -27,7 +34,6 @@
 
 .article-time {
   font-weight: 400;
-  cursor: pointer;
   font-size: 0.8rem;
   color: $gray;
 }

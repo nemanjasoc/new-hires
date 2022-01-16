@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { forkJoin } from 'rxjs';
 import { mergeMap, tap } from 'rxjs/operators';
 import { ArticleService } from '../core/services/article.service';
 import { CategoryService } from '../core/services/category.service';
 import { Article } from '../shared/models/article.model';
 import { Category } from '../shared/models/category.model';
+import { Comment } from '../shared/models/comment.model';
 
 @Component({
   selector: 'app-single-post',
@@ -13,6 +15,7 @@ import { Category } from '../shared/models/category.model';
 })
 export class SinglePostComponent implements OnInit {
   article: Article;
+  comments: Comment[] = [];
   category: Category;
 
   constructor(private route: ActivatedRoute,
@@ -25,16 +28,20 @@ export class SinglePostComponent implements OnInit {
   }
 
   private loadData(articleId: number) {
-    this.articleService.getById(articleId)
+    forkJoin([
+      this.articleService.getById(articleId),
+      this.articleService.getComments(articleId)
+    ])
       .pipe(
-        tap(result => {
-          this.article = result.data;
+        tap(([article, comments]) => {
+          this.article = article.data;
+          this.comments = comments.data;
         }),
-        mergeMap(result => {
-          return this.categoryService.getById(result.data.category_id)
+        mergeMap(([article, comments]) => {
+          return this.categoryService.getById(article.data.category_id);
         })
-      ).subscribe(result => {
-        this.category = result.data;
+      ).subscribe(category => {
+        this.category = category.data;
       }, error => {
         console.log('Error while loading single category: ', error);
       })

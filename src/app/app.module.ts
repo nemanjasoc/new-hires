@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { SinglePostComponent } from './single-post/single-post.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SinglePostComponent } from './single-post/single-post.component';
     HeaderComponent,
     AdminDashboardComponent,
     PostsListComponent,
-    SinglePostComponent
+    SinglePostComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

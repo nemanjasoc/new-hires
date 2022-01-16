@@ -2,10 +2,19 @@
   <div *ngIf="article && category" class="container">
     <h1>NEWS</h1>
     <h2>{{article.title}}</h2>
+    <div>
+      <span class="category-title">Cetegory: </span>
+      <span class="category-name">{{category.name}}</span>
+      <span class="article-separator"> - </span>
+      <span class="article-time">{{category.created_at | date: 'medium'}}</span>
+    </div>
     <p>{{article.body}}</p>
     <hr />
-    <span class="category-name">{{category.name}}</span>
-    <span class="article-separator"> - </span>
-    <span class="article-time">{{article.created_at}}</span>
+    <span class="comment-title">Comments:</span>
+    <div class="comments">
+      <div *ngFor="let comment of comments" class="comment">
+        <p>{{comment.description}}</p>
+      </div>
+    </div>
   </div>
 </div>
